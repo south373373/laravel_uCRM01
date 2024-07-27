@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 // 追記
 use App\Http\Controllers\InertiaTestController;
-
+use App\Http\Controllers\ItemController;
 
 // 仮作成
 Route::get('/inertia-test',function(){
@@ -37,11 +37,17 @@ Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+// 追記分
+Route::resource('/items', ItemController::class)
+    ->middleware(['auth', 'verified']);
+
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
 
 
 
