@@ -8,6 +8,10 @@ use Inertia\Inertia;
 use App\Http\Controllers\InertiaTestController;
 use App\Http\Controllers\ItemController;
 
+// 追記分
+Route::resource('/items', ItemController::class)
+    ->middleware(['auth', 'verified']);
+
 // 仮作成
 Route::get('/inertia-test',function(){
     return Inertia::render('InertiaTest');
@@ -37,9 +41,6 @@ Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-// 追記分
-Route::resource('/items', ItemController::class)
-    ->middleware(['auth', 'verified']);
 
 
 Route::middleware('auth')->group(function () {

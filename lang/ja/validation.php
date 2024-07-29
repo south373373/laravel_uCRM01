@@ -147,7 +147,9 @@ return [
     */
 
     'attributes' => [
-        'name' => '名前',
+        'name' => '商品名',
+        'memo' => 'メモ',
+        'price' => '料金',
         'email' => 'メールアドレス',
         'password' => 'パスワード',
         'title' => '件名',

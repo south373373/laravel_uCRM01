@@ -21,7 +21,6 @@ const showingNavigationDropdown = ref(false);
                             <!-- Logo -->
                             <div class="shrink-0 flex items-center">
                                 <Link :href="route('dashboard')">
-                                    // ロゴの大きさ調整
                                     <ApplicationLogo
                                         class="block w-20 fill-current text-gray-800"
                                     />
@@ -32,6 +31,9 @@ const showingNavigationDropdown = ref(false);
                             <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                                 <NavLink :href="route('dashboard')" :active="route().current('dashboard')">
                                     Dashboard
+                                </NavLink>
+                                <NavLink :href="route('items.index')" :active="route().current('items.index')">
+                                    商品管理
                                 </NavLink>
                             </div>
                         </div>
@@ -115,6 +117,9 @@ const showingNavigationDropdown = ref(false);
                     <div class="pt-2 pb-3 space-y-1">
                         <ResponsiveNavLink :href="route('dashboard')" :active="route().current('dashboard')">
                             Dashboard
+                        </ResponsiveNavLink>
+                        <ResponsiveNavLink :href="route('items.index')" :active="route().current('items.index')">
+                            商品管理
                         </ResponsiveNavLink>
                     </div>
 
